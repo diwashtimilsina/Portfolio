@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwash Timilsina - AI/ML Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.12.0/tsparticles.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #fff 0%, #999 100%);
+        }
+
+        .profile-content {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .education-card, .experience-card, .project-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover, .experience-card:hover, .project-card:hover {
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .card-subtitle {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .card-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .achievements-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .achievement-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .papers-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .paper-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .paper-item:hover {
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .paper-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+                    @media (max-width: 768px) {
+                .tag-cloud-container {
+                    height: 300px;
+                }
+                
+                .tag-cloud-item {
+                    position: relative !important;
+                    display: inline-block;
+                    margin: 8px;
+                    top: auto !important;
+                    left: auto !important;
+                    transform: none !important;
+                    animation: none;
+                }
+                
+                .tag-cloud {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                }
+                
+                .certifications-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Diwash Timilsina</h1>
+                <p class="subtitle">AI/ML Engineer & Computer Engineering Student</p>
+                
+                <div class="contact-info">
+                    <a href="tel:+97798476239144" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +977 98476 23 914
+                    </a>
+                    <a href="mailto:diwash.timilsina@nicnepal.org" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        diwash.timilsina@nicnepal.org
+                    </a>
+                    <a href="#" class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        Portfolio
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/diwashtimilsina/" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Portfolio">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Profile</h2>
+            <div class="profile-content animate-on-scroll">
+                <p>Detail-oriented AI/ML Engineer currently pursuing a Bachelor's degree in Computer Engineering and certified by Google and DataCamp. Passionate about leveraging machine learning and artificial intelligence to solve real-world problems and create innovative solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Education</h2>
+            <div class="education-card animate-on-scroll">
+                <div class="card-title">Bachelor of Engineering in Computer Engineering</div>
+                <div class="card-subtitle">Gandaki College of Engineering and Science, Pokhara, Nepal</div>
+                <div class="card-date">2022 – 2026</div>
+                <div class="card-description">
+                    <p>• Among the top 5% of the batch</p>
+                    <p>• Relevant coursework in Data Science, Machine Learning, and related subjects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Statistics</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">AI Automation</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
+                </div>
+                <div class="skill-category animate-on-scroll">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Anaconda</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Certifications</h2>
+            <div class="certifications-list">
+                <div class="cert-item animate-on-scroll">
+                    <div class="card-title">Machine Learning Scientist</div>
+                    <div class="card-description">Advanced certification in machine learning methodologies</div>
+                </div>
+                <div class="cert-item animate-on-scroll">
+                    <div class="card-title">Data Scientist Associate</div>
+                    <div class="card-description">Professional certification in data science practices</div>
+                </div>
+                <div class="cert-item animate-on-scroll">
+                    <div class="card-title">Python Data Associate</div>
+                    <div class="card-description">Specialized certification in Python for data analysis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Experience</h2>
+            
+            <div class="experience-card animate-on-scroll">
+                <div class="card-title">Machine Learning Intern</div>
+                <div class="card-subtitle">National Innovation Center, Pokhara, Nepal</div>
+                <div class="card-date">May 2025 – Aug 2025</div>
+                <div class="card-description">
+                    <p>• Developed and deployed a computer vision system for aviation safety monitoring</p>
+                    <p>• Built a Convolutional Neural Network (CNN) model to classify whether Nepalese airplanes are fit to fly based on live camera images from airports across Nepal</p>
+                    <p>• Designed and developed an intelligent chatbot to automate responses and improve user engagement for NIC Nepal</p>
+                </div>
+            </div>
+
+            <div class="experience-card animate-on-scroll">
+                <div class="card-title">AI/ML Intern</div>
+                <div class="card-subtitle">IT Together, Pokhara, Nepal</div>
+                <div class="card-date">Aug 2025 – Present</div>
+                <div class="card-description">
+                    <p>• Developed a Poker News Generator leveraging OpenAI models for automated, real-time content creation</p>
+                    <p>• Built a unified AI package integrating Text-to-Speech (TTS), Speech-to-Text (STT), Text Generation, and Image Generation services in FastAPI</p>
+                    <p>• Implemented a cost-optimization system that dynamically selects the most affordable model for each task based on real-time pricing and performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <div class="card-title">Loc-8</div>
+                    <div class="card-subtitle">ML-based Vehicle Tracking and Accident Detection</div>
+                    <div class="card-description">
+                        <p>Built ML system for real-time vehicle tracking and accident detection using FastAPI, Next.js, Python, ESP32, GSM, and sensors. Enabled monitoring, accident alerts, and improved road safety.</p>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="card-title">Farmer-Problem</div>
+                    <div class="card-subtitle">IoT-based Farmer-Problem System</div>
+                    <div class="card-date">04/24 – 05/24</div>
+                    <div class="card-description">
+                        <p>Built an IoT system to collect soil data (pH, N, P, K, etc.) and analyze it for crop recommendations. Developed a chatbot interface to provide farmers with actionable insights and solutions, enabling data-driven farming decisions to optimize yield and soil health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Research Papers</h2>
+            <div class="papers-section">
+                <div class="paper-item animate-on-scroll">
+                    <div class="paper-title">Quantum Causal Inference</div>
+                    <div class="card-description">
+                        Research paper exploring quantum approaches to causal inference and their applications in computational models.
+                    </div>
+                </div>
+
+                <div class="paper-item animate-on-scroll">
+                    <div class="paper-title">Quantum Image Generation using 2 Bits</div>
+                    <div class="card-description">
+                        Research paper on developing efficient quantum-based methods for low-bit image generation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-item animate-on-scroll">
+                    <div class="card-title">Community Leadership</div>
+                    <div class="card-description">
+                        Led a 14,000+ member community on LinkedIn, fostering engagement and knowledge sharing in the AI/ML space.
+                    </div>
+                </div>
+
+                <div class="achievement-item animate-on-scroll">
+                    <div class="card-title">'Innovative Student Award'</div>
+                    <div class="card-subtitle">Gandaki College of Engineering and Science</div>
+                    <div class="card-description">
+                        Recognized for solving Farmers Problem using ML and IoT, achieving 50% reduction in manual work through innovative technology solutions.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Diwash Timilsina. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize tsParticles
+        tsParticles.load("tsparticles", {
+            background: {
+                color: {
+                    value: "#000000",
+                },
+            },
+            fpsLimit: 120,
+            interactivity: {
+                events: {
+                    onClick: {
+                        enable: true,
+                        mode: "push",
+                    },
+                    onHover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                    resize: true,
+                },
+                modes: {
+                    push: {
+                        quantity: 4,
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4,
+                    },
+                },
+            },
+            particles: {
+                color: {
+                    value: "#ffffff",
+                },
+                links: {
+                    color: "#ffffff",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.2,
+                    width: 1,
+                },
+                collisions: {
+                    enable: true,
+                },
+                move: {
+                    direction: "none",
+                    enable: true,
+                    outModes: {
+                        default: "bounce",
+                    },
+                    random: false,
+                    speed: 1,
+                    straight: false,
+                },
+                number: {
+                    density: {
+                        enable: true,
+                        area: 800,
+                    },
+                    value: 80,
+                },
+                opacity: {
+                    value: 0.3,
+                },
+                shape: {
+                    type: "circle",
+                },
+                size: {
+                    value: { min: 1, max: 3 },
+                },
+            },
+            detectRetina: true,
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic year update
+        document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} Diwash Timilsina. All rights reserved.`;
+    </script>
+</body>
+</html>
